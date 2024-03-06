@@ -2,17 +2,16 @@
 @section('conteudo')
 
     @php
-        if(!empty($dado->id)){
-            $route = route('aluno.update',$dado->id);
+        if (!empty($dado->id)) {
+            $route = route('aluno.update', $dado->id);
         } else {
-            $route = route('aluno.store') ;
+            $route = route('aluno.store');
         }
     @endphp
 
     <form action="{{ $route }}" method="post">
 
         @csrf
-
 
         <label for="">Nome</label><br>
         <input type="text" name="nome" value="{{ old('nome') }}"><br>

@@ -9,7 +9,7 @@
         <input type="text" name="nome"><br>
 
         <button type="submit">Buscar</button>
-        <button><a href="{{ url('aluno/create') }}">Novo</a></button>
+        <button><a href="{{ route('aluno.create') }}">Novo</a></button>
     </form>
 
     <hr>

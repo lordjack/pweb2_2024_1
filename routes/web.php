@@ -6,11 +6,11 @@ use App\Http\Controllers\AlunoController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 //routes/web.php
 Route::get('/aluno', [AlunoController::class, "index"]);
 //carrega o formulário
-Route::get('/aluno/create', [AlunoController::class, "create"]);
+Route::get('/aluno/create', [AlunoController::class, "create"])->name('aluno.create');
 //recebe os dados do formulario para ser salvo na função store
 Route::post('/aluno', [AlunoController::class, "store"])->name('aluno.store');
 //Route::get('/aluno/destroy/{$id}', [AlunoController::class, "destroy"])->name('aluno.destroy');
@@ -21,6 +21,8 @@ Route::delete('/aluno/{$aluno}',
     ->name('aluno.edit');
  Route::post('/aluno',
   [AlunoController::class, "update"])->name('aluno.update');
+  */
+Route::resource('aluno', AlunoController::class);
 
 Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
 

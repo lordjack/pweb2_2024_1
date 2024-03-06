@@ -50,6 +50,8 @@ class AlunoController extends Controller
                 'cpf' => $request->cpf,
             ]
         );
+
+        return redirect('aluno');
     }
 
     /**
@@ -96,6 +98,7 @@ class AlunoController extends Controller
                 'cpf' => $request->cpf,
             ]
         );
+        return redirect('aluno');
     }
 
     /**
