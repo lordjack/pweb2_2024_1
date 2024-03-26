@@ -10,7 +10,7 @@
 @endphp
 
 <h3>Formulário de Aluno</h3>
-<form action="{{ $route }}" method="post">
+<form action="{{ $route }}" method="post" enctype="multipart/form-data">
 
     @csrf
 
@@ -39,6 +39,16 @@
             <option value="{{ $item->id }}">{{ $item->nome }}</option>
         @endforeach
     </select><br>
+
+    @php
+        $nome_imagem = !empty($dado->imagem) ? $dado->imagem : 'sem_imagem.jpg';
+        //dd($nome_imagem);
+    @endphp
+    <label for="">Imagem</label><br>
+    <img src="/storage/{{ $nome_imagem }}" width="300px" alt="imagem" />
+    <input type="file" name="imagem" class="form-control"
+        value="@if (!empty($dado->imagem)) {{ $dado->imagem }}@elseif (!empty(old('imagem'))){{ old('imagem') }}@else{{ '' }} @endif"><br>
+
 
     <button type="submit" class="btn btn-success">Salvar</button>
     <a href="{{ url('aluno') }}" class="btn btn-primary">Voltar</a>

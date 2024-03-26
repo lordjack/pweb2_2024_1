@@ -25,7 +25,7 @@ class AlunoController extends Controller
     {
         $categorias = Categoria::all();
 
-        return view("aluno.form",['categorias'=>$categorias]);
+        return view("aluno.form", ['categorias' => $categorias]);
     }
 
     /**
@@ -39,23 +39,41 @@ class AlunoController extends Controller
             'nome' => "required|max:100",
             'cpf' => "required|max:16",
             'categoria_id' => "required",
-            'telefone' => "nullable"
+            'telefone' => "nullable",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
             'cpf.required' => "O :attribute é obrigatório",
             'cpf.max' => "Só é permitido 16 caracteres",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
         ]);
 
-        Aluno::create(
-            [
-                'nome' => $request->nome,
-                'telefone' => $request->telefone,
-                'cpf' => $request->cpf,
-                'categoria_id' => $request->categoria_id,
-            ]
-        );
+        $data = $request->all();
+        $imagem = $request->file('imagem');
+
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/aluno/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
+
+        /*
+        [
+            'nome' => $request->nome,
+            'telefone' => $request->telefone,
+            'cpf' => $request->cpf,
+            'categoria_id' => $request->categoria_id,
+        ]
+        */
+        Aluno::create($data);
+
         return redirect('aluno');
     }
 
@@ -78,7 +96,7 @@ class AlunoController extends Controller
 
         return view("aluno.form", [
             'dado' => $dado,
-            'categorias'=> $categorias
+            'categorias' => $categorias
         ]);
     }
 
@@ -93,23 +111,34 @@ class AlunoController extends Controller
             'nome' => "required|max:100",
             'cpf' => "required|max:16",
             'categoria_id' => "required",
-            'telefone' => "nullable"
+            'telefone' => "nullable",
+            'imagem' => "nullable|image|mimes:png,jpeg,jpg",
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
             'cpf.required' => "O :attribute é obrigatório",
             'cpf.max' => "Só é permitido 16 caracteres",
             'categoria_id.required' => "O :attribute é obrigatório",
+            'imagem.image' => "Deve ser enviado uma imagem",
+            'imagem.mimes' => "A imagem deve ser da extensão de PNG, JPEG ou JPG",
         ]);
+
+        $data = $request->all();
+        $imagem = $request->file('imagem');
+
+        if ($imagem) {
+            $nome_arquivo =
+                date('YmdHis') . "." . $imagem->getClientOriginalExtension();
+            $diretorio = "imagem/aluno/";
+
+            $imagem->storeAs($diretorio, $nome_arquivo, 'public');
+
+            $data['imagem'] = $diretorio . $nome_arquivo;
+        }
 
         Aluno::updateOrCreate(
             ['id' => $request->id],
-            [
-                'nome' => $request->nome,
-                'telefone' => $request->telefone,
-                'cpf' => $request->cpf,
-                'categoria_id' => $request->categoria_id,
-            ]
+            $data
         );
 
         return redirect('aluno');

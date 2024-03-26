@@ -16,6 +16,7 @@ class Aluno extends Model
         "telefone",
         "cpf",
         "categoria_id",
+        "imagem",
     ];
 
     protected $casts = [

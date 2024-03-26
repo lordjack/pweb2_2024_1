@@ -25,6 +25,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Imagem</th>
             <th>Nome</th>
             <th>Telefone</th>
             <th>CPF</th>
@@ -36,6 +37,12 @@
     <tbody>
         @foreach ($dados as $item)
             <tr>
+                @php
+                    $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
+                    //dd($nome_imagem);
+                @endphp
+                <td><img src="/storage/{{ $nome_imagem }}" width="150px" alt="imagem" /></td>
+
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->nome }}</td>
                 <td>{{ $item->telefone }}</td>
