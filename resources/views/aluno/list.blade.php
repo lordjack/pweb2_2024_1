@@ -64,4 +64,5 @@
     </tbody>
 </table>
 
+{{ $dados->withQueryString()->links('pagination::bootstrap-5') }}
 @stop

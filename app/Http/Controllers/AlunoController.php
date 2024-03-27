@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
+
+    private $pagination = 2;
+
     public function index()
     {
         //app/http/Controller
-        $dados = Aluno::all();
+        $dados = Aluno::paginate($this->pagination);
 
         // dd($dados);
 
@@ -163,9 +166,9 @@ class AlunoController extends Controller
                 "nome",
                 "like",
                 "%" . $request->nome . "%"
-            )->get();
+            )->paginate($this->pagination);
         } else {
-            $dados = Aluno::all();
+            $dados = Aluno::paginate($this->pagination);
         }
         // dd($dados);
 
