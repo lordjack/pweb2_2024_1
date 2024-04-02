@@ -5,13 +5,13 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProfessorSeeder extends Seeder
+class MatriculaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Professor::factory()->count(3)->create();
+        Matricula::factory()->count(10)->create();
     }
 }

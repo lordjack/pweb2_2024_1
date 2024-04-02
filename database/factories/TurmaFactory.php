@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Professor>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Turma>
  */
-class ProfessorFactory extends Factory
+class TurmaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,6 +18,8 @@ class ProfessorFactory extends Factory
     {
         return [
             'nome'=> $this->faker->word(),
+            'professor_id'=>(Professor::inRandomOrder()->first())->id,
+            'curso_id'=>(Curso::inRandomOrder()->first())->id,
         ];
     }
 }
