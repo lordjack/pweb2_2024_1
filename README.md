@@ -108,6 +108,11 @@ Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante 
 **Atualizar arquivos do projeto local de acordo com o repositorio do Git remoto**  
 `git pull`
 
+**CRUDs do Projeto**  
+
+![db_academico](https://github.com/lordjack/pweb2_2024_1/assets/6691621/07eab9a8-5b24-4616-9d83-7465b31a8dee)
+
+
 ## Dicas atalhos no VSCode
 [Vídeo com as dicas](https://youtu.be/MZgbd7bjCTk?si=0zN4B2YsXLU3a9Z8) 
 
