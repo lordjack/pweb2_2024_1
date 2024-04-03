@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ProfessorController;
+use App\Http\Controllers\MatriculaController;
 
 Route::get('/', function () {
     return view('inicio');
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('professor', ProfessorController::class);
     Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');
+
+    Route::resource('matricula', MatriculaController::class);
+    Route::post('/matricula/search', [MatriculaController::class, "search"])->name('professor.search');
 
 });
 

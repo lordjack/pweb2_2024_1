@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('codigo',20)->nullable();
             $table->date('data_inicio')->nullable();
             $table->date('data_fim')->nullable();
-            $table->integer('carga_horaria')->nullable();
             $table->timestamps();
         });
 

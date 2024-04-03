@@ -4,15 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Matricula;
+use App\Models\Aluno;
 
-class MatriculaSeeder extends Seeder
+class AlunoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Matricula::factory()->count(10)->create();
+        Aluno::factory()->count(3)->create();
+   
     }
 }

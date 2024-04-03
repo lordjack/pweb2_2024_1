@@ -12,7 +12,13 @@ class MatriculaController extends Controller
      */
     public function index()
     {
-        //
+        $matriculas = Matricula::all();
+
+        dd($matriculas);
+
+        return view('matricula.list',[
+            'matriculas'=> $matriculas
+        ]);
     }
 
     /**

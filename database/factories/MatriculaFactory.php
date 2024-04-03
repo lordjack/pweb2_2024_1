@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\Curso;
+use App\Models\Turma;
+use App\Models\Aluno;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Matricula>
  */
@@ -20,7 +22,7 @@ class MatriculaFactory extends Factory
             'curso_id' => (Curso::inRandomOrder()->first())->id,
             'turma_id' => (Turma::inRandomOrder()->first())->id,
             'aluno_id' => (Aluno::inRandomOrder()->first())->id,
-            'data_matricula' => $faker->date(),
+            'data_matricula' => fake()->date(),
         ];
     }
 }

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Professor extends Model
 {
     use HasFactory;
+
+    protected $table = "professores";
+    //app/Models/
+    protected $fillable = [
+        "nome",
+        "email",
+        "titulacao",
+        "formacao",
+    ];
 }
