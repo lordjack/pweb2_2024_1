@@ -110,7 +110,7 @@ Código-Fonte do Projeto desenvolvido durante as aulas de  desenvolvido durante 
 
 **CRUDs do Projeto**  
 
-![db_academico](https://github.com/lordjack/pweb2_2024_1/assets/6691621/07eab9a8-5b24-4616-9d83-7465b31a8dee)
+![db_academico](https://github.com/lordjack/pweb2_2024_1/assets/6691621/cd722837-e1f4-41be-94f4-78b2bf9d08d6)
 
 
 ## Dicas atalhos no VSCode
