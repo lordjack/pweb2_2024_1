@@ -42,7 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');
 
     Route::resource('matricula', MatriculaController::class);
-    Route::post('/matricula/search', [MatriculaController::class, "search"])->name('professor.search');
+    Route::post('/matricula/search', [MatriculaController::class, "search"])->name('matricula.search');
+    Route::get('/matricula/detail/{id}',
+     [MatriculaController::class, "detail"])->name('matricula.detail');
+
 
 });
 

@@ -1,10 +1,10 @@
 @extends('base')
 @section('conteudo')
-@section('titulo', 'Listagem de Alunos')
+@section('titulo', 'Listagem de Matriculas')
 
-<h3>Listagem de Alunos</h3>
+<h3>Listagem de Matriculas</h3>
 
-<form action="{{ route('aluno.search') }}" method="post">
+<form action="{{ route('matricula.search') }}" method="post">
 
     <div class="row">
         @csrf
@@ -14,7 +14,7 @@
         </div>
         <div class="col-4" style="margin-top: 22px;">
             <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-            <a href="{{ url('aluno/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
+            <a href="{{ url('matricula/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
         </div>
     </div>
 </form>
@@ -25,11 +25,11 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Imagem</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>CPF</th>
-            <th>Categoria</th>
+            <th>Curso</th>
+            <th>Turma</th>
+            <th>Aluno</th>
+            <th>Data Matricula</th>
+            <th>Detalhe</th>
             <th>Ação</th>
             <th>Ação</th>
         </tr>
@@ -37,21 +37,17 @@
     <tbody>
         @foreach ($dados as $item)
             <tr>
-                @php
-                    $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
-                    //dd($nome_imagem);
-                @endphp
-                <td><img src="/storage/{{ $nome_imagem }}" width="150px" alt="imagem" /></td>
-
                 <td>{{ $item->id }}</td>
-                <td>{{ $item->nome }}</td>
-                <td>{{ $item->telefone }}</td>
-                <td>{{ $item->cpf }}</td>
-                <td>{{ $item->categoria->nome ?? '' }}</td>
-                <td><a href="{{ route('aluno.edit', $item->id) }} "class="btn btn-outline-primary" title="Editar"><i
+                <td>{{ $item->curso->nome ?? '' }}</td>
+                <td>{{ $item->turma->nome ?? '' }}</td>
+                <td>{{ $item->aluno->nome ?? '' }}</td>
+                <td>{{ date('d/m/Y', strtotime($item->data_matricula)) ?? '' }}</td>
+                <td><a href="{{ route('matricula.detail', $item->id) }} "class="btn btn-outline-warning" title="Detalhe"><i
+                    class="fa-solid fa-circle-info"></i></a></td>
+                <td><a href="{{ route('matricula.edit', $item->id) }} "class="btn btn-outline-primary" title="Editar"><i
                             class="fa-solid fa-pen-to-square"></i></a></td>
                 <td>
-                    <form action="{{ route('aluno.destroy', $item) }}" method="post">
+                    <form action="{{ route('matricula.destroy', $item) }}" method="post">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-outline-danger" title="Deletar"

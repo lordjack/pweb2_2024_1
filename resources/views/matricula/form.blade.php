@@ -1,15 +1,15 @@
 @extends('base')
 @section('conteudo')
-@section('titulo', 'Formulário de Aluno')
+@section('titulo', 'Formulário de Matricula')
 @php
     if (!empty($dado->id)) {
-        $route = route('aluno.update', $dado->id);
+        $route = route('matricula.update', $dado->id);
     } else {
-        $route = route('aluno.store');
+        $route = route('matricula.store');
     }
 @endphp
 
-<h3>Formulário de Aluno</h3>
+<h3>Formulário de Matricula</h3>
 <form action="{{ $route }}" method="post" enctype="multipart/form-data">
 
     @csrf
@@ -21,37 +21,34 @@
     <input type="hidden" name="id"
         value="@if (!empty($dado->id)) {{ $dado->id }}@else{{ '' }} @endif"><br>
 
-    <label for="">Nome</label><br>
-    <input type="text" name="nome" class="form-control"
-        value="@if (!empty($dado->nome)) {{ $dado->nome }}@elseif (!empty(old('nome'))){{ old('nome') }}@else{{ '' }} @endif"><br>
-
-    <label for="">Telefone</label><br>
-    <input type="text" name="telefone" class="form-control"
-        value="@if (!empty($dado->telefone)) {{ $dado->telefone }}@elseif (!empty(old('telefone'))){{ old('telefone') }}@else{{ '' }} @endif"><br>
-
-    <label for="">CPF</label><br>
-    <input type="text" name="cpf" class="form-control"
-        value="@if (!empty($dado->cpf)) {{ $dado->cpf }}@elseif (!empty(old('cpf'))){{ old('cpf') }}@else{{ '' }} @endif"><br>
-
-    <label for="">Categorias</label><br>
-    <select name="categoria_id" class="form-select">
-        @foreach ($categorias as $item)
+    <label for="">Curso</label><br>
+    <select name="curso_id" class="form-select">
+        @foreach ($cursos as $item)
             <option value="{{ $item->id }}">{{ $item->nome }}</option>
         @endforeach
     </select><br>
 
-    @php
-        $nome_imagem = !empty($dado->imagem) ? $dado->imagem : 'sem_imagem.jpg';
-        //dd($nome_imagem);
-    @endphp
-    <label for="">Imagem</label><br>
-    <img src="/storage/{{ $nome_imagem }}" width="300px" alt="imagem" />
-    <input type="file" name="imagem" class="form-control"
-        value="@if (!empty($dado->imagem)) {{ $dado->imagem }}@elseif (!empty(old('imagem'))){{ old('imagem') }}@else{{ '' }} @endif"><br>
+    <label for="">Turma</label><br>
+    <select name="turma_id" class="form-select">
+        @foreach ($turmas as $item)
+            <option value="{{ $item->id }}">{{ $item->nome }}</option>
+        @endforeach
+    </select><br>
+
+    <label for="">Aluno</label><br>
+    <select name="aluno_id" class="form-select">
+        @foreach ($alunos as $item)
+            <option value="{{ $item->id }}">{{ $item->nome }}</option>
+        @endforeach
+    </select><br>
+
+    <label for="">Data Matricula</label><br>
+    <input type="date" name="data_matricula" class="form-control"
+        value="@if (!empty($dado->data_matricula)) {{ $dado->data_matricula }}@elseif (!empty(old('data_matricula'))){{ old('data_matricula') }}@else{{ '' }} @endif"><br>
 
 
     <button type="submit" class="btn btn-success">Salvar</button>
-    <a href="{{ url('aluno') }}" class="btn btn-primary">Voltar</a>
+    <a href="{{ url('matricula') }}" class="btn btn-primary">Voltar</a>
 </form>
 
 @stop
