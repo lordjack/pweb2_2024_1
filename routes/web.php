@@ -46,6 +46,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/matricula/detail/{id}',
      [MatriculaController::class, "detail"])->name('matricula.detail');
 
+  /*   Route::get('/matricula/report/',
+      [MatriculaController::class, "report"])->name('matricula.report');
+*/
+      Route::get('/matricula/relatorio/', function () {
+
+        return "<p>teste</p>";
+
+        //npm run build
+
+       } )->name('matricula.relatorio');
 
 });
 

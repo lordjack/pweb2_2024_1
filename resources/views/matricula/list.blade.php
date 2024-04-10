@@ -15,6 +15,8 @@
         <div class="col-4" style="margin-top: 22px;">
             <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('matricula/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
+            <a href="{{ route('matricula.report') }}" target="_blank" class="btn btn-danger"><i
+                    class="fa-solid fa-file-pdf"></i> Relatório</a>
         </div>
     </div>
 </form>
@@ -42,8 +44,8 @@
                 <td>{{ $item->turma->nome ?? '' }}</td>
                 <td>{{ $item->aluno->nome ?? '' }}</td>
                 <td>{{ date('d/m/Y', strtotime($item->data_matricula)) ?? '' }}</td>
-                <td><a href="{{ route('matricula.detail', $item->id) }} "class="btn btn-outline-warning" title="Detalhe"><i
-                    class="fa-solid fa-circle-info"></i></a></td>
+                <td><a href="{{ route('matricula.detail', $item->id) }} "class="btn btn-outline-warning"
+                        title="Detalhe"><i class="fa-solid fa-circle-info"></i></a></td>
                 <td><a href="{{ route('matricula.edit', $item->id) }} "class="btn btn-outline-primary" title="Editar"><i
                             class="fa-solid fa-pen-to-square"></i></a></td>
                 <td>

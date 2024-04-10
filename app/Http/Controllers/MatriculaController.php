@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use App\Models\Turma;
 use App\Models\Aluno;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class MatriculaController extends Controller
 {
@@ -154,5 +155,15 @@ class MatriculaController extends Controller
             'turma'=> $turma,
             'aluno'=> $aluno,
         ]);
+    }
+
+    public function report() {
+
+        $dados = Matricula::orderBy('id')->get();
+        dd( $dados );
+
+       // $pdf = Pdf::loadView('matricula.report', ['dados' => $dados]);
+
+       // return $pdf->download('listagem_matriculas.pdf');
     }
 }
