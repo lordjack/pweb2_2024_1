@@ -136,6 +136,17 @@ Código-Fonte do Projeto desenvolvido durante as aulas de programação web 2 co
 `Alt + ! + tab`   
 **Mostrar os atalhos dos comandos**  
 `Ctrl+k Ctrl+s`   
+## Comandos para o Node
+
+**Instalar Pacotes do Node**  
+`npm install`   
+
+**Publicar os pacotes do node**  
+`npm run build`   
+
+**Ver versão do node que esta instalado**  
+`node -v`   
+
 ### Links Úteis
 - [Documentação oficial do Laravel](https://laravel.com/docs).
 - [Correção do Erro de instalação do login Breeze](https://stackoverflow.com/questions/72798465/vite-manifest-not-found-at-c-users-hp-example-app-public-build-manifest-json)

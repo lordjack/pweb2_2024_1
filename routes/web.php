@@ -41,21 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::resource('professor', ProfessorController::class);
     Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');
 
-    Route::resource('matricula', MatriculaController::class);
+
     Route::post('/matricula/search', [MatriculaController::class, "search"])->name('matricula.search');
     Route::get('/matricula/detail/{id}',
      [MatriculaController::class, "detail"])->name('matricula.detail');
-
-  /*   Route::get('/matricula/report/',
+    Route::get('/matricula/report/',
       [MatriculaController::class, "report"])->name('matricula.report');
-*/
-      Route::get('/matricula/relatorio/', function () {
-
-        return "<p>teste</p>";
-
-        //npm run build
-
-       } )->name('matricula.relatorio');
+    Route::get('/matricula/chart/',
+      [MatriculaController::class, "chart"])->name('matricula.chart');
+    Route::resource('matricula', MatriculaController::class);
 
 });
 

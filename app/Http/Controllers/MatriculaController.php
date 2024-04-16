@@ -9,6 +9,9 @@ use App\Models\Turma;
 use App\Models\Aluno;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use App\Charts\NotasAlunoChart;
+use App\Charts\MediaNotasAlunoChart;
+
 class MatriculaController extends Controller
 {
     /**
@@ -160,10 +163,25 @@ class MatriculaController extends Controller
     public function report() {
 
         $dados = Matricula::orderBy('id')->get();
-        dd( $dados );
+        // dd( $dados );
 
-       // $pdf = Pdf::loadView('matricula.report', ['dados' => $dados]);
+        $pdf = Pdf::loadView('matricula.report', ['dados' => $dados]);
 
-       // return $pdf->download('listagem_matriculas.pdf');
+       // dd($pdf);
+
+        return $pdf->download('listagem_matriculas.pdf');
+    }
+
+    public function chart(NotasAlunoChart $notasChart,
+                 MediaNotasAlunoChart $mediaNotasChart)
+    {
+      //  $matriculas = Matricula::paginate($this->pagination);
+
+        //dd($matriculas[1]->turma);
+
+        return view('matricula.chart',[
+            'notasChart'=> $notasChart->build(),
+            'mediaNotasChart'=> $mediaNotasChart->build(),
+        ]);
     }
 }

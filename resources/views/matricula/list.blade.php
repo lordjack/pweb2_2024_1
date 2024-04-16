@@ -12,11 +12,13 @@
             <label for="">Nome</label><br>
             <input type="text" name="nome" class="form-control"><br>
         </div>
-        <div class="col-4" style="margin-top: 22px;">
+        <div class="col-5" style="margin-top: 22px;">
             <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('matricula/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
             <a href="{{ route('matricula.report') }}" target="_blank" class="btn btn-danger"><i
                     class="fa-solid fa-file-pdf"></i> Relatório</a>
+            <a href="{{ route('matricula.chart') }}" target="_blank" class="btn btn-warning"><i
+                class="fa-solid fa-chart-pie"></i> Gráfico</a>
         </div>
     </div>
 </form>

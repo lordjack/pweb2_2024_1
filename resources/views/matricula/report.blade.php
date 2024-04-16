@@ -28,11 +28,10 @@
 
         @php
             $nome_imagem = !empty($item->aluno->imagem) ? $item->aluno->imagem : 'sem_imagem.jpg';
-            //dd($nome_imagem);
         @endphp
 
         <b for="">Imagem Aluno</b><br>
-        <img src="/storage/{{ $nome_imagem }}" style="width: 150px" alt="imagem" />
+        <img src="{{ storage_path('app/public/' . $nome_imagem) }}" style="width: 150px" alt="imagem" />
 
         <b for="">Aluno</b><br>
         <span> {{ $item->aluno->nome }}</span><br>
