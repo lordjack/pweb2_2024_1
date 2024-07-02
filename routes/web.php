@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfessorController;
 use App\Http\Controllers\MatriculaController;
 
 Route::get('/', function () {
-    return view('inicio');
+    return view('welcome');
 });
 /*
 //routes/web.php
@@ -41,7 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('professor', ProfessorController::class);
     Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');
 
-
     Route::post('/matricula/search', [MatriculaController::class, "search"])->name('matricula.search');
     Route::get('/matricula/detail/{id}',
      [MatriculaController::class, "detail"])->name('matricula.detail');
@@ -54,5 +53,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-

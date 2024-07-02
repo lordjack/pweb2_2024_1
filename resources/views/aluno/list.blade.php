@@ -39,11 +39,9 @@
             <tr>
                 @php
                     $nome_imagem = !empty($item->imagem) ? $item->imagem : 'sem_imagem.jpg';
-                    //dd($nome_imagem);
                 @endphp
-                <td><img src="/storage/{{ $nome_imagem }}" width="150px" alt="imagem" /></td>
-
                 <td>{{ $item->id }}</td>
+                <td><img src="/storage/{{ $nome_imagem }}" width="150px" alt="imagem" /></td>
                 <td>{{ $item->nome }}</td>
                 <td>{{ $item->telefone }}</td>
                 <td>{{ $item->cpf }}</td>
