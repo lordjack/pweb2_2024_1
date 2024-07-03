@@ -15,6 +15,8 @@
         <div class="col-4" style="margin-top: 22px;">
             <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('aluno/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
+            <a href="{{ url('aluno/chart') }}" class="btn btn-warning"><i class="fa-solid fa-chart-pie"></i> Gráfico</a>
+
         </div>
     </div>
 </form>

@@ -35,8 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('aluno', AlunoController::class);
     Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
+    Route::get('/aluno/chart/',
+        [AlunoController::class, "chart"])->name('aluno.chart');
+    Route::resource('aluno', AlunoController::class);
 
     Route::resource('professor', ProfessorController::class);
     Route::post('/professor/search', [ProfessorController::class, "search"])->name('professor.search');

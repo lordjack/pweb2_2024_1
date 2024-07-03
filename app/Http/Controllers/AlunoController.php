@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Aluno;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Charts\GraficoQtdAluno;
 
 class AlunoController extends Controller
 {
@@ -173,5 +174,10 @@ class AlunoController extends Controller
         // dd($dados);
 
         return view("aluno.list", ["dados" => $dados]);
+    }
+
+    public function chart(GraficoQtdAluno $alunoChart)
+    {
+        return view("aluno.chart", ["alunoChart" => $alunoChart->build()]);
     }
 }
