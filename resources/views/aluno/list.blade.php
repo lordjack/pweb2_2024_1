@@ -12,10 +12,11 @@
             <label for="">Nome</label><br>
             <input type="text" name="nome" class="form-control"><br>
         </div>
-        <div class="col-4" style="margin-top: 22px;">
+        <div class="col-6" style="margin-top: 22px;">
             <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('aluno/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
             <a href="{{ url('aluno/chart') }}" class="btn btn-warning"><i class="fa-solid fa-chart-pie"></i> Gráfico</a>
+            <a href="{{ url('aluno/report') }}" class="btn btn-danger"><i class="fa-solid fa-file-pdf"></i> PDF</a>
 
         </div>
     </div>

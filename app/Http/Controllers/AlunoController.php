@@ -6,6 +6,7 @@ use App\Models\Aluno;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Charts\GraficoQtdAluno;
+use PDF;
 
 class AlunoController extends Controller
 {
@@ -180,4 +181,19 @@ class AlunoController extends Controller
     {
         return view("aluno.chart", ["alunoChart" => $alunoChart->build()]);
     }
+
+    public function report()
+    {
+        $alunos = Aluno::All();
+
+        $data = [
+            'titulo' => 'Relatório Alunos2',
+            'alunos'=> $alunos,
+        ];
+
+        $pdf = PDF::loadView('aluno.report', $data);
+
+        return $pdf->download('relatorio_alunos.pdf');
+    }
+
 }

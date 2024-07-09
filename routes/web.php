@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/aluno/search', [AlunoController::class, "search"])->name('aluno.search');
     Route::get('/aluno/chart/',
         [AlunoController::class, "chart"])->name('aluno.chart');
+    Route::get('/aluno/report/',
+        [AlunoController::class, "report"])->name('aluno.report');
     Route::resource('aluno', AlunoController::class);
 
     Route::resource('professor', ProfessorController::class);
